@@ -1,0 +1,68 @@
+import { define_crud, define_module } from "@opus-perpetuus/imperium-core-kit";
+import { physical_device_pages } from "./physical-device.pages.ts";
+import { physical_device_tables } from "./physical-device.tables.ts";
+
+export const physical_device_module = define_module({
+  resource: "physical-device",
+  labels: {
+    singular: "Dispositivos físicos",
+    plural: "Dispositivos físicos",
+    read: "Ver Dispositivos físicos",
+    write: "Editar Dispositivos físicos",
+  },
+  routes: define_crud({
+    resource: "physical-device",
+    table: "physical_device",
+    soft_delete: true,
+    soft_delete_field: "is_active",
+    history: true,
+    default_sort: "name:asc",
+    id_prefix: "physical",
+    fields: {
+      name: { type: "string", required: true, search: true },
+      description: { type: "string", search: true },
+      is_active: { type: "boolean" },
+      state: { type: "string" },
+      ref: { type: "string", search: true },
+      search_field: { type: "string", search: true },
+      created_by: { type: "string" },
+      custom_data: { type: "json" },
+      payload: { type: "json" },
+      hostname: { type: "string", search: true },
+      model: { type: "string", search: true },
+      serial: { type: "string", search: true },
+      os_platform: { type: "string", search: true },
+      last_user_name: { type: "string", search: true },
+      last_seen: { type: "string", search: true },
+      install_uuid: { type: "string", search: true },
+      machine_uuid: { type: "string", search: true },
+      manufacturer: { type: "string", search: true },
+      os_distro: { type: "string", search: true },
+      os_release: { type: "string", search: true },
+      os_arch: { type: "string", search: true },
+      cpu_brand: { type: "string", search: true },
+      cpu_cores: { type: "number" },
+      memory_total_bytes: { type: "number" },
+      gpu_primary: { type: "string", search: true },
+      primary_mac: { type: "string", search: true },
+      primary_ip4: { type: "string", search: true },
+      device_kind: { type: "string", search: true },
+      app_version: { type: "string", search: true },
+      last_user_id: { type: "string", search: true },
+    },
+    options_map: { value: "id", label: "name" },
+  }),
+  tables: physical_device_tables,
+  pages: physical_device_pages,
+  menu: [
+    {
+      id: "dispositivos-fisicos.physical-device",
+      label: "Dispositivos físicos",
+      order: 10,
+      pageId: "dispositivos-fisicos.physical-device",
+      path: "physical-device",
+      permission: "subject.dispositivos-fisicos.physical-device.read",
+      icon: "document",
+    }
+    ],
+});

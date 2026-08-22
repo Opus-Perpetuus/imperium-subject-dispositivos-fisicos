@@ -1,0 +1,56 @@
+{
+  "id": "SUBJECT-dispositivos-fisicos",
+  "technicalId": "subject-dispositivos-fisicos",
+  "name": "Dispositivos físicos",
+  "version": "0.1.0",
+  "image": "ghcr.io/opus-perpetuus/subject-dispositivos-fisicos:0.1.0",
+  "compat": {
+    "nox": ">=0.5.0",
+    "kit": "^0.5.0"
+  },
+  "api": {
+    "basePath": "/",
+    "port": 3000,
+    "healthPath": "/health"
+  },
+  "permissions": [
+    {
+      "id": "subject.dispositivos-fisicos.physical-device.read",
+      "label": "Ver Dispositivos físicos"
+    },
+    {
+      "id": "subject.dispositivos-fisicos.physical-device.write",
+      "label": "Editar Dispositivos físicos"
+    }
+  ],
+  "pages": [
+    {
+      "id": "dispositivos-fisicos.physical-device",
+      "path": "physical-device",
+      "permission": "subject.dispositivos-fisicos.physical-device.read"
+    }
+  ],
+  "menu": [
+    {
+      "id": "dispositivos-fisicos.root",
+      "label": "Dispositivos físicos",
+      "order": 0,
+      "children": [
+        {
+          "id": "dispositivos-fisicos.physical-device",
+          "label": "Dispositivos físicos",
+          "order": 10,
+          "pageId": "dispositivos-fisicos.physical-device",
+          "path": "physical-device",
+          "permission": "subject.dispositivos-fisicos.physical-device.read"
+        }
+      ]
+    }
+  ],
+  "storage": {
+    "domain": "shared-nox-postgres"
+  },
+  "resources": {
+    "physical-device": "physical_device"
+  }
+}
