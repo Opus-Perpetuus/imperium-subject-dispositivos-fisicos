@@ -23,13 +23,6 @@
       "label": "Editar Dispositivos físicos"
     }
   ],
-  "pages": [
-    {
-      "id": "dispositivos-fisicos.physical-device",
-      "path": "physical-device",
-      "permission": "subject.dispositivos-fisicos.physical-device.read"
-    }
-  ],
   "menu": [
     {
       "id": "dispositivos-fisicos.root",
@@ -39,18 +32,27 @@
         {
           "id": "dispositivos-fisicos.physical-device",
           "label": "Dispositivos físicos",
-          "order": 10,
           "pageId": "dispositivos-fisicos.physical-device",
+          "order": 10,
           "path": "physical-device",
-          "permission": "subject.dispositivos-fisicos.physical-device.read"
+          "permission": "subject.dispositivos-fisicos.physical-device.read",
+          "icon": "document"
         }
       ]
     }
   ],
+  "pages": [
+    {
+      "id": "dispositivos-fisicos.physical-device",
+      "path": "physical-device",
+      "permission": "subject.dispositivos-fisicos.physical-device.read"
+    }
+  ],
   "storage": {
-    "domain": "shared-nox-postgres"
+    "domain": "shared-nox-postgres",
+    "files": false
   },
   "resources": {
-    "physical-device": "physical_device"
+    "physical-device": "physical-device"
   }
 }
