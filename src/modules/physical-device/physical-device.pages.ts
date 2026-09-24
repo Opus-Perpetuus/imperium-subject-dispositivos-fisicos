@@ -52,14 +52,14 @@ export const physical_device_pages: KirletPageDecl[] = [
           form: {
             fields: [
               { name: "name", component: "input-text", label: "Nombre", required: true },
-              { name: "description", component: "input-text", label: "Descripción" },
+              { name: "description", component: "input-textarea", label: "Descripción" },
               { name: "ref", component: "input-text", label: "Referencia (_ref)" },
               { name: "hostname", component: "input-text", label: "hostname" },
               { name: "model", component: "input-text", label: "model" },
               { name: "serial", component: "input-text", label: "serial" },
               { name: "os_platform", component: "input-text", label: "os platform" },
               { name: "last_user_name", component: "input-text", label: "last user name" },
-              { name: "last_seen", component: "input-text", label: "last seen" },
+              { name: "last_seen", component: "input-date", label: "last seen" },
               { name: "install_uuid", component: "input-text", label: "install uuid" },
               { name: "machine_uuid", component: "input-text", label: "machine uuid" },
               { name: "manufacturer", component: "input-text", label: "manufacturer" },
